@@ -21,7 +21,18 @@ enable_testing()
 add_executable(StreamsTests
         tests/StreamsTests.cpp
         src/parse/CommandLineParser.cpp
-        src/parse/CommandLineParser.h)
+        src/parse/CommandLineParser.h
+        src/streams/IOutputDataStream.h
+        src/streams/MemoryOutputStream.h
+        src/streams/MemoryOutputStream.cpp
+        src/streams/IInputDataStream.h
+        src/streams/MemoryInputStream.h
+        src/streams/MemoryInputStream.cpp
+        src/decorators/OutputStreamDecorator.h
+        src/decorators/InputStreamDecorator.h
+        src/decorators/EncryptionTable.h
+        src/decorators/EncryptionOutputStream.h
+        src/decorators/DecryptionInputStream.h)
 
 target_link_libraries(StreamsTests
         gtest_main
