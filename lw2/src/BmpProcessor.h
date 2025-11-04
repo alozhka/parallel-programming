@@ -155,7 +155,7 @@ public:
 	}
 
 private:
-	static constexpr int ITERATIONS = 17 ;
+	static constexpr int ITERATIONS = 17;
 
 	static DWORD WINAPI BlurFunction(LPVOID lpParam)
 	{
