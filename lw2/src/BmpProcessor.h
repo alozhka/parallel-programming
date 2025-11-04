@@ -40,7 +40,7 @@ struct FileData
 	uint32_t GetRowStride() const { return (bitmapHeader.width * 3 + 3) & (~3); }
 };
 
-class BmpLoader
+class BmpProcessor
 {
 public:
 	static FileData Read(const std::string& filename)

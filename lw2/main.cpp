@@ -1,4 +1,4 @@
-#include "src/BmpLoader.h"
+#include "src/BmpProcessor.h"
 
 #include <algorithm>
 #include <chrono>
@@ -31,128 +31,6 @@ struct ThreadData
 	std::vector<Square> squares;
 };
 
-// Прототипы функций
-bool ParseCommandLine(int argc, char* argv[], InputData& input);
-bool SetCpuAffinity(int coresAmount);
-std::vector<std::vector<Square>> DivideIntoSquares(uint32_t width, uint32_t height, int numThreads);
-void ApplyBoxBlurToSquare(const std::vector<uint8_t>& src, std::vector<uint8_t>& dst,
-	const Square& square, uint32_t width, uint32_t height, uint32_t rowStride);
-DWORD WINAPI ThreadProc(LPVOID lpParam);
-double MeasureTime(const std::function<void()>& func);
-void PrintMetrics(double T1, double TN, int numThreads);
-
-int main(int argc, char* argv[])
-{
-	InputData input;
-
-	if (!ParseCommandLine(argc, argv, input))
-	{
-		return 1;
-	}
-
-	if (!SetCpuAffinity(input.numCores))
-	{
-		std::cerr << "Failed to set CPU affinity\n";
-		return 1;
-	}
-
-	// Читаем BMP файл
-	FileData fileData;
-	try
-	{
-		fileData = BmpLoader::Read(input.inputFile);
-	}
-	catch (const std::exception& e)
-	{
-		std::cerr << "Error reading file: " << e.what() << "\n";
-		return 1;
-	}
-
-	uint32_t width = fileData.GetWidth();
-	uint32_t height = fileData.GetHeight();
-	uint32_t rowStride = fileData.GetRowStride();
-
-	std::cout << "Image size: " << width << "x" << height << "\n";
-	std::cout << "Row stride: " << rowStride << "\n";
-	std::cout << "Pixels size: " << fileData.pixels.size() << "\n";
-	std::cout << "Threads: " << input.numThreads << ", Cores: " << input.numCores << "\n";
-
-	// Проверка корректности данных
-	if (width == 0 || height == 0 || width > 10000 || height > 10000)
-	{
-		std::cerr << "Invalid image dimensions!\n";
-		return 1;
-	}
-
-	// Определяем количество итераций для достижения времени 0.5-1 сек
-	constexpr int iterations = 10;
-
-	// Разбиваем на квадраты
-	auto threadSquares = DivideIntoSquares(width, height, input.numThreads);
-
-	// Последовательное выполнение (1 поток)
-	auto pixelsSeq = fileData.pixels;
-	double T1 = MeasureTime([&]() {
-		for (int iter = 0; iter < iterations; ++iter)
-		{
-			auto temp = pixelsSeq;
-			Square fullImage = { 0, 0, static_cast<int>(width), static_cast<int>(height) };
-			ApplyBoxBlurToSquare(pixelsSeq, temp, fullImage, width, height, rowStride);
-			pixelsSeq = temp;
-		}
-	});
-
-	// Параллельное выполнение
-	auto pixelsPar = fileData.pixels;
-	double TN = MeasureTime([&]() {
-		for (int iter = 0; iter < iterations; ++iter)
-		{
-			auto temp = pixelsPar;
-
-			std::vector<HANDLE> threads(input.numThreads);
-			std::vector<ThreadData> threadData(input.numThreads);
-
-			for (int i = 0; i < input.numThreads; ++i)
-			{
-				threadData[i].srcPixels = &pixelsPar;
-				threadData[i].dstPixels = &temp;
-				threadData[i].width = width;
-				threadData[i].height = height;
-				threadData[i].rowStride = rowStride;
-				threadData[i].squares = threadSquares[i];
-
-				threads[i] = CreateThread(NULL, 0, ThreadProc, &threadData[i], 0, NULL);
-			}
-
-			WaitForMultipleObjects(input.numThreads, threads.data(), TRUE, INFINITE);
-
-			for (int i = 0; i < input.numThreads; ++i)
-			{
-				CloseHandle(threads[i]);
-			}
-
-			pixelsPar = temp;
-		}
-	});
-
-	PrintMetrics(T1, TN, input.numThreads);
-
-	// Сохраняем результат
-	fileData.pixels = pixelsPar;
-	try
-	{
-		BmpLoader::Write(input.outputFile, fileData);
-		std::cout << "Output saved to: " << input.outputFile << "\n";
-	}
-	catch (const std::exception& e)
-	{
-		std::cerr << "Error writing file: " << e.what() << "\n";
-		return 1;
-	}
-
-	return 0;
-}
-
 bool ParseCommandLine(int argc, char* argv[], InputData& input)
 {
 	if (argc != 5)
@@ -177,6 +55,77 @@ bool SetCpuAffinity(int coresAmount)
 {
 	DWORD_PTR mask = (1ULL << coresAmount) - 1;
 	return SetProcessAffinityMask(GetCurrentProcess(), mask) != 0;
+}
+
+std::vector<std::vector<Square>> DivideIntoSquares(uint32_t width, uint32_t height, int numThreads);
+void ApplyBoxBlurToSquare(const std::vector<uint8_t>& src, std::vector<uint8_t>& dst,
+	const Square& square, uint32_t width, uint32_t height, uint32_t rowStride);
+DWORD WINAPI ThreadProc(LPVOID lpParam);
+double MeasureTime(const std::function<void()>& func);
+
+int main(int argc, char* argv[])
+{
+	InputData input;
+
+	if (!ParseCommandLine(argc, argv, input))
+	{
+		return 1;
+	}
+
+	if (!SetCpuAffinity(input.numCores))
+	{
+		std::cerr << "Failed to set CPU affinity\n";
+		return 1;
+	}
+
+	FileData fileData = BmpProcessor::Read(input.inputFile);
+
+	std::cout << "Image size: " << fileData.GetWidth() << "x" << fileData.GetHeight() << "\n";
+	std::cout << "Row stride: " << fileData.GetRowStride() << "\n";
+	std::cout << "Pixels size: " << fileData.pixels.size() << "\n";
+	std::cout << "Threads: " << input.numThreads << ", Cores: " << input.numCores << "\n";
+
+	constexpr int iterations = 10;
+	auto threadSquares = DivideIntoSquares(fileData.GetWidth(), fileData.GetHeight(), input.numThreads);
+
+	double TN = MeasureTime([&]() {
+		for (int iter = 0; iter < iterations; ++iter)
+		{
+			auto temp = fileData.pixels;
+
+			std::vector<HANDLE> threads(input.numThreads);
+			std::vector<ThreadData> threadData(input.numThreads);
+
+			for (int i = 0; i < input.numThreads; ++i)
+			{
+				threadData[i].srcPixels = &fileData.pixels;
+				threadData[i].dstPixels = &temp;
+				threadData[i].width = fileData.GetWidth();
+				threadData[i].height = fileData.GetHeight();
+				threadData[i].rowStride = fileData.GetRowStride();
+				threadData[i].squares = threadSquares[i];
+
+				threads[i] = CreateThread(nullptr, 0, ThreadProc, &threadData[i], 0, nullptr);
+			}
+
+			WaitForMultipleObjects(input.numThreads, threads.data(), TRUE, INFINITE);
+
+			for (int i = 0; i < input.numThreads; ++i)
+			{
+				CloseHandle(threads[i]);
+			}
+
+			fileData.pixels = temp;
+		}
+	});
+
+	std::cout << "Spent time: " << TN << "\n";
+
+
+	BmpProcessor::Write(input.outputFile, fileData);
+	std::cout << "Output saved to: " << input.outputFile << "\n";
+
+	return 0;
 }
 
 std::vector<std::vector<Square>> DivideIntoSquares(uint32_t width, uint32_t height, int numThreads)
@@ -277,14 +226,4 @@ double MeasureTime(const std::function<void()>& func)
 	func();
 	QueryPerformanceCounter(&end);
 	return (end.QuadPart - start.QuadPart) * 1000.0 / freq.QuadPart;
-}
-
-void PrintMetrics(double T1, double TN, int numThreads)
-{
-	double SN = T1 / TN;
-	double EN = SN / numThreads;
-	std::cout << "T1 = " << T1 << " ms\n";
-	std::cout << "TN = " << TN << " ms\n";
-	std::cout << "SN = " << SN << "\n";
-	std::cout << "EN = " << EN << "\n";
 }
