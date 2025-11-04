@@ -122,10 +122,9 @@ public:
 
 	static void BlurImage(FileData& fileData, int numThreads)
 	{
-		constexpr int iterations = 19;
 		auto threadSquares = DivideIntoSquares(fileData.GetWidth(), fileData.GetHeight(), numThreads);
 
-		for (int iter = 0; iter < iterations; ++iter)
+		for (int iter = 0; iter < ITERATIONS; ++iter)
 		{
 			auto temp = fileData.pixels;
 
@@ -156,6 +155,8 @@ public:
 	}
 
 private:
+	static constexpr int ITERATIONS = 17 ;
+
 	static DWORD WINAPI BlurFunction(LPVOID lpParam)
 	{
 		auto* data = static_cast<ThreadData*>(lpParam);
