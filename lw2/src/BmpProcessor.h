@@ -1,7 +1,12 @@
 #pragma once
+#include <algorithm>
+#include <bemapiset.h>
 #include <cstdint>
 #include <fstream>
+#include <numeric>
+#include <random>
 #include <vector>
+#include <windows.h>
 
 #pragma pack(push, 1)
 struct FileHeader
@@ -28,6 +33,22 @@ struct BitmapHeader
 	uint32_t colors_important{ 0 };
 };
 #pragma pack(pop)
+
+struct Square
+{
+	int startX, startY;
+	int endX, endY;
+};
+
+struct ThreadData
+{
+	std::vector<uint8_t>* srcPixels;
+	std::vector<uint8_t>* dstPixels;
+	uint32_t width;
+	uint32_t height;
+	uint32_t rowStride;
+	std::vector<Square> squares;
+};
 
 struct FileData
 {
@@ -97,5 +118,130 @@ public:
 		}
 
 		out.close();
+	}
+
+	static void BlurImage(FileData& fileData, int numThreads)
+	{
+		constexpr int iterations = 19;
+		auto threadSquares = DivideIntoSquares(fileData.GetWidth(), fileData.GetHeight(), numThreads);
+
+		for (int iter = 0; iter < iterations; ++iter)
+		{
+			auto temp = fileData.pixels;
+
+			std::vector<HANDLE> threads(numThreads);
+			std::vector<ThreadData> threadData(numThreads);
+
+			for (int i = 0; i < numThreads; ++i)
+			{
+				threadData[i].srcPixels = &fileData.pixels;
+				threadData[i].dstPixels = &temp;
+				threadData[i].width = fileData.GetWidth();
+				threadData[i].height = fileData.GetHeight();
+				threadData[i].rowStride = fileData.GetRowStride();
+				threadData[i].squares = threadSquares[i];
+
+				threads[i] = CreateThread(nullptr, 0, BlurFunction, &threadData[i], 0, nullptr);
+			}
+
+			WaitForMultipleObjects(numThreads, threads.data(), TRUE, INFINITE);
+
+			for (HANDLE& thread : threads)
+			{
+				CloseHandle(thread);
+			}
+
+			fileData.pixels = temp;
+		}
+	}
+
+private:
+	static DWORD WINAPI BlurFunction(LPVOID lpParam)
+	{
+		auto* data = static_cast<ThreadData*>(lpParam);
+
+		for (const Square& square : data->squares)
+		{
+			ApplyBoxBlurToSquare(*data->srcPixels, *data->dstPixels, square,
+				data->width, data->height, data->rowStride);
+		}
+
+		return 0;
+	}
+
+	static void ApplyBoxBlurToSquare(const std::vector<uint8_t>& src, std::vector<uint8_t>& dst,
+		const Square& square, uint32_t width, uint32_t height, uint32_t rowStride)
+	{
+		for (int y = square.startY; y < square.endY; ++y)
+		{
+			for (int x = square.startX; x < square.endX; ++x)
+			{
+				int r = 0, g = 0, b = 0, count = 0;
+
+				// Box blur 3x3
+				for (int dy = -1; dy <= 1; ++dy)
+				{
+					for (int dx = -1; dx <= 1; ++dx)
+					{
+						int ny = y + dy;
+						int nx = x + dx;
+
+						if (ny >= 0 && ny < static_cast<int>(height) && nx >= 0 && nx < static_cast<int>(width))
+						{
+							int offset = ny * rowStride + nx * 3;
+							b += src[offset + 0];
+							g += src[offset + 1];
+							r += src[offset + 2];
+							++count;
+						}
+					}
+				}
+
+				int offset = y * rowStride + x * 3;
+				dst[offset + 0] = static_cast<uint8_t>(b / count);
+				dst[offset + 1] = static_cast<uint8_t>(g / count);
+				dst[offset + 2] = static_cast<uint8_t>(r / count);
+			}
+		}
+	}
+
+	static std::vector<std::vector<Square>> DivideIntoSquares(uint32_t width, uint32_t height, int numThreads)
+	{
+		// Всего квадратов: N*N, где N = numThreads
+		int totalSquares = numThreads * numThreads;
+		int squaresPerSide = numThreads;
+
+		// Размеры одного квадрата
+		int squareWidth = (width + squaresPerSide - 1) / squaresPerSide;
+		int squareHeight = (height + squaresPerSide - 1) / squaresPerSide;
+
+		// Создаем все квадраты
+		std::vector<Square> allSquares;
+		for (int row = 0; row < squaresPerSide; ++row)
+		{
+			for (int col = 0; col < squaresPerSide; ++col)
+			{
+				Square sq{};
+				sq.startX = col * squareWidth;
+				sq.startY = row * squareHeight;
+				sq.endX = std::min(sq.startX + squareWidth, static_cast<int>(width));
+				sq.endY = std::min(sq.startY + squareHeight, static_cast<int>(height));
+				allSquares.push_back(sq);
+			}
+		}
+
+		std::vector<int> indices(totalSquares);
+		std::iota(indices.begin(), indices.end(), 0);
+		std::ranges::shuffle(indices, std::default_random_engine{ 321 });
+
+		// Распределяем квадраты по потокам (каждый поток получает N квадратов)
+		std::vector<std::vector<Square>> result(numThreads);
+		for (int i = 0; i < totalSquares; ++i)
+		{
+			int threadIdx = i % numThreads;
+			result[threadIdx].push_back(allSquares[indices[i]]);
+		}
+
+		return result;
 	}
 };
