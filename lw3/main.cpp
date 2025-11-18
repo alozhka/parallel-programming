@@ -1,8 +1,8 @@
+#include <cmath>
 #include <format>
 #include <fstream>
 #include <iostream>
 #include <mutex>
-#include <vector>
 #include <windows.h>
 
 constexpr int OPERATIONS_COUNT = 20;
@@ -29,7 +29,11 @@ DWORD WINAPI ThreadFunction(LPVOID lpParam)
 		WriteFile(data->hFile, buffer.c_str(), buffer.size(), nullptr, nullptr);
 		ReleaseMutex(data->mutex);
 
-		Sleep(SLEEP_TIME);
+		volatile double x = 0.0;
+		for (int j = 0; j < 100000; j++)
+		{
+			x += std::sin(std::cos(std::sin(static_cast<double>(j))));
+		}
 	}
 
 	return 0;
@@ -46,14 +50,14 @@ void ClearFile(const std::string& fileName)
 
 int main()
 {
+	SetProcessPriorityBoost(GetCurrentProcess(), true);
 	SetConsoleOutputCP(CP_UTF8);
 	SetConsoleCP(CP_UTF8);
 	ClearFile(OUTPUT_FILE);
 	std::cout << "Запуск потоков..." << std::endl;
 	DWORD startTime = timeGetTime();
 
-	HANDLE process = GetCurrentProcess();
-	SetProcessAffinityMask(process, 0b1);
+	SetProcessAffinityMask(GetCurrentProcess(), 0b1);
 
 	HANDLE mutex = CreateMutex(nullptr, false, nullptr);
 	HANDLE file = CreateFile(
