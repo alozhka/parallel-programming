@@ -1,10 +1,11 @@
 #pragma once
 #include <algorithm>
-#include <bemapiset.h>
 #include <cstdint>
 #include <fstream>
 #include <numeric>
 #include <random>
+#include <stdexcept>
+#include <string>
 #include <vector>
 #include <windows.h>
 
@@ -48,6 +49,9 @@ struct ThreadData
 	uint32_t height;
 	uint32_t rowStride;
 	std::vector<Square> squares;
+	int threadId;
+	DWORD startTime;
+	HANDLE statsFile, mutex;
 };
 
 struct FileData
@@ -120,8 +124,20 @@ public:
 		out.close();
 	}
 
-	static void BlurImage(FileData& fileData, int numThreads)
+	static void BlurImage(FileData& fileData, int numThreads, const std::string& statsFile)
 	{
+		HANDLE hStatsFile = CreateFile(
+			statsFile.c_str(),
+			GENERIC_WRITE,
+			0,
+			nullptr,
+			CREATE_ALWAYS,
+			FILE_ATTRIBUTE_NORMAL,
+			nullptr);
+		HANDLE mutex = CreateMutex(nullptr, false, nullptr);
+
+		DWORD globalStart = timeGetTime();
+
 		auto threadSquares = DivideIntoSquares(fileData.GetWidth(), fileData.GetHeight(), numThreads);
 
 		for (int iter = 0; iter < ITERATIONS; ++iter)
@@ -139,6 +155,10 @@ public:
 				threadData[i].height = fileData.GetHeight();
 				threadData[i].rowStride = fileData.GetRowStride();
 				threadData[i].squares = threadSquares[i];
+				threadData[i].threadId = i + 1;
+				threadData[i].startTime = globalStart;
+				threadData[i].statsFile = hStatsFile;
+				threadData[i].mutex = mutex;
 
 				threads[i] = CreateThread(nullptr, 0, BlurFunction, &threadData[i], 0, nullptr);
 			}
@@ -165,19 +185,23 @@ private:
 		for (const Square& square : data->squares)
 		{
 			ApplyBoxBlurToSquare(*data->srcPixels, *data->dstPixels, square,
-				data->width, data->height, data->rowStride);
+				data->width, data->height, data->rowStride, data->threadId,
+				data->startTime, data->statsFile, data->mutex);
 		}
 
 		return 0;
 	}
 
 	static void ApplyBoxBlurToSquare(const std::vector<uint8_t>& src, std::vector<uint8_t>& dst,
-		const Square& square, uint32_t width, uint32_t height, uint32_t rowStride)
+		const Square& square, uint32_t width, uint32_t height, uint32_t rowStride, int threadId, DWORD globalStart, HANDLE statsFile, HANDLE mutex)
 	{
+		volatile int pixels = 0;
 		for (int y = square.startY; y < square.endY; ++y)
 		{
 			for (int x = square.startX; x < square.endX; ++x)
 			{
+				DWORD currentTime = timeGetTime();
+
 				int r = 0, g = 0, b = 0, count = 0;
 
 				// Box blur 3x3
@@ -203,6 +227,23 @@ private:
 				dst[offset + 0] = static_cast<uint8_t>(b / count);
 				dst[offset + 1] = static_cast<uint8_t>(g / count);
 				dst[offset + 2] = static_cast<uint8_t>(r / count);
+
+				pixels = pixels + 1;
+				if (pixels > 20000)
+				{
+					pixels = 0;
+					DWORD elapsedMs = currentTime - globalStart;
+					std::string statsLine = std::to_string(threadId) + "|" + std::to_string(elapsedMs) + "\n";
+					WaitForSingleObject(mutex, INFINITE);
+					WriteFile(statsFile, statsLine.c_str(), statsLine.length(), nullptr, nullptr);
+					ReleaseMutex(mutex);
+
+					volatile double temp = 0;
+					for (int j = 0; j < 1000; j++)
+					{
+						temp += std::sin(std::cos(std::sin(static_cast<double>(j))));
+					}
+				}
 			}
 		}
 	}

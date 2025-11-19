@@ -1,31 +1,31 @@
 #include "src/BmpProcessor.h"
 
-#include <algorithm>
 #include <chrono>
 #include <functional>
 #include <iostream>
-#include <numeric>
 #include <random>
 #include <vector>
 #include <windows.h>
 
 struct InputData
 {
-	std::string inputFile, outputFile;
+	std::string inputFile, outputFile, statsFile;
 	int numCores, numThreads;
+	std::vector<int> threadPriorities;
 };
 
 bool ParseCommandLine(int argc, char* argv[], InputData& input)
 {
-	if (argc != 5)
+	if (argc != 6)
 	{
-		std::cerr << "Usage: " << argv[0] << " <input.bmp> <output.bmp> <num_threads> <num_cores>\n";
+		std::cerr << "Usage: " << argv[0] << " <input.bmp> <output.bmp> <stats.txt> <num_cores> <num_threads>\n";
 		return false;
 	}
 	input.inputFile = argv[1];
 	input.outputFile = argv[2];
-	input.numCores = std::atoi(argv[3]);
-	input.numThreads = std::atoi(argv[4]);
+	input.statsFile = argv[3];
+	input.numCores = std::atoi(argv[4]);
+	input.numThreads = std::atoi(argv[5]);
 
 	if (input.numThreads < 1 || input.numThreads > 16 || input.numCores < 1 || input.numCores > 4)
 	{
@@ -72,7 +72,7 @@ int main(int argc, char* argv[])
 	std::cout << "Pixels size: " << fileData.pixels.size() << "\n";
 	std::cout << "Threads: " << input.numThreads << ", Cores: " << input.numCores << "\n";
 
-	BmpProcessor::BlurImage(fileData, input.numThreads);
+	BmpProcessor::BlurImage(fileData, input.numThreads, input.statsFile);
 
 	BmpProcessor::Write(input.outputFile, fileData);
 	std::cout << "Output saved to: " << input.outputFile << "\n";

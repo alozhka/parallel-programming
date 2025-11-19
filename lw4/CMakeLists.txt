@@ -5,3 +5,6 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(lw4 main.cpp
         src/BmpProcessor.h)
+
+# Подключение библиотеки winmm для функции timeGetTime
+target_link_libraries(lw4 winmm)
