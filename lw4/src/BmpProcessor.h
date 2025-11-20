@@ -9,6 +9,9 @@
 #include <vector>
 #include <windows.h>
 
+
+inline static std::vector<std::pair<short, double>> g_timings{};
+inline static HANDLE g_mutex;
 #pragma pack(push, 1)
 struct FileHeader
 {
@@ -51,7 +54,6 @@ struct ThreadData
 	std::vector<Square> squares;
 	int threadId;
 	DWORD startTime;
-	HANDLE statsFile, mutex;
 };
 
 struct FileData
@@ -126,15 +128,7 @@ public:
 
 	static void BlurImage(FileData& fileData, int numThreads, const std::string& statsFile)
 	{
-		HANDLE hStatsFile = CreateFile(
-			statsFile.c_str(),
-			GENERIC_WRITE,
-			0,
-			nullptr,
-			CREATE_ALWAYS,
-			FILE_ATTRIBUTE_NORMAL,
-			nullptr);
-		HANDLE mutex = CreateMutex(nullptr, false, nullptr);
+		g_mutex = CreateMutex(nullptr, false, nullptr);
 
 		DWORD globalStart = timeGetTime();
 
@@ -157,13 +151,12 @@ public:
 				threadData[i].squares = threadSquares[i];
 				threadData[i].threadId = i + 1;
 				threadData[i].startTime = globalStart;
-				threadData[i].statsFile = hStatsFile;
-				threadData[i].mutex = mutex;
 
 				threads[i] = CreateThread(nullptr, 0, BlurFunction, &threadData[i], 0, nullptr);
 			}
 
 			SetThreadPriority(threads[0], ABOVE_NORMAL_PRIORITY_CLASS);
+			SetThreadPriority(threads[2], BELOW_NORMAL_PRIORITY_CLASS);
 			WaitForMultipleObjects(numThreads, threads.data(), TRUE, INFINITE);
 
 			for (HANDLE& thread : threads)
@@ -186,14 +179,14 @@ private:
 		{
 			ApplyBoxBlurToSquare(*data->srcPixels, *data->dstPixels, square,
 				data->width, data->height, data->rowStride, data->threadId,
-				data->startTime, data->statsFile, data->mutex);
+				data->startTime);
 		}
 
 		return 0;
 	}
 
 	static void ApplyBoxBlurToSquare(const std::vector<uint8_t>& src, std::vector<uint8_t>& dst,
-		const Square& square, uint32_t width, uint32_t height, uint32_t rowStride, int threadId, DWORD globalStart, HANDLE statsFile, HANDLE mutex)
+		const Square& square, uint32_t width, uint32_t height, uint32_t rowStride, int threadId, DWORD globalStart)
 	{
 		volatile int pixels = 0;
 		for (int y = square.startY; y < square.endY; ++y)
@@ -234,12 +227,12 @@ private:
 					pixels = 0;
 					DWORD elapsedMs = currentTime - globalStart;
 					std::string statsLine = std::to_string(threadId) + "|" + std::to_string(elapsedMs) + "\n";
-					WaitForSingleObject(mutex, INFINITE);
-					WriteFile(statsFile, statsLine.c_str(), statsLine.length(), nullptr, nullptr);
-					ReleaseMutex(mutex);
+					WaitForSingleObject(g_mutex, INFINITE);
+					g_timings.emplace_back(threadId, elapsedMs);
+					ReleaseMutex(g_mutex);
 
 					volatile double temp = 0;
-					for (int j = 0; j < 1000; j++)
+					for (int j = 0; j < 100000; j++)
 					{
 						temp += std::sin(std::cos(std::sin(static_cast<double>(j))));
 					}

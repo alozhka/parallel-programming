@@ -41,16 +41,24 @@ bool SetCpuAffinity(int coresAmount)
 	return SetProcessAffinityMask(GetCurrentProcess(), mask) != 0;
 }
 
-std::vector<std::vector<Square>> DivideIntoSquares(uint32_t width, uint32_t height, int numThreads);
-void ApplyBoxBlurToSquare(const std::vector<uint8_t>& src, std::vector<uint8_t>& dst,
-	const Square& square, uint32_t width, uint32_t height, uint32_t rowStride);
-DWORD WINAPI ThreadProc(LPVOID lpParam);
+
+void WriteTimings(const std::string& filename)
+{
+	std::ofstream out{ filename };
+	if (!out.is_open())
+	{
+		throw std::invalid_argument("Cannot open log file");
+	}
+	for (auto [threadId, time] : g_timings)
+	{
+		out << threadId << "|" << time << std::endl;
+	}
+}
 
 int main(int argc, char* argv[])
 {
-	LARGE_INTEGER freq, start, end;
-	QueryPerformanceFrequency(&freq);
-	QueryPerformanceCounter(&start);
+	SetProcessPriorityBoost(GetCurrentProcess(), true);
+	DWORD start = timeGetTime();
 
 	InputData input;
 
@@ -77,9 +85,9 @@ int main(int argc, char* argv[])
 	BmpProcessor::Write(input.outputFile, fileData);
 	std::cout << "Output saved to: " << input.outputFile << "\n";
 
-	QueryPerformanceCounter(&end);
-	auto time = (end.QuadPart - start.QuadPart) * 1000.0 / freq.QuadPart;
+	auto time = timeGetTime() - start;
 	std::cout << "Spent time: " << time << "\n";
 
+	WriteTimings(input.statsFile);
 	return 0;
 }
