@@ -1,0 +1,51 @@
+(563024) Cannot withdraw money, balance lower than 1000
+(563024) Balance after deposit: 230
+(563024) Balance after deposit: 460
+(563024) Cannot withdraw money, balance lower than 1000
+(563024) Balance after deposit: 690
+(563024) Cannot withdraw money, balance lower than 1000
+(563024) Balance after deposit: 920
+(563024) Cannot withdraw money, balance lower than 1000
+(563024) Balance after deposit: 1150
+(563024) Balance after withdraw: 150
+(563024) Balance after deposit: 380
+(563024) Cannot withdraw money, balance lower than 1000
+(563024) Balance after deposit: 610
+(563024) Cannot withdraw money, balance lower than 1000
+(563024) Balance after deposit: 840
+(563024) Cannot withdraw money, balance lower than 1000
+(563024) Balance after deposit: 1070
+(563024) Balance after withdraw: 70
+(563024) Balance after deposit: 300
+(563024) Cannot withdraw money, balance lower than 1000
+(563024) Balance after deposit: 530
+(563024) Cannot withdraw money, balance lower than 1000
+(563024) Balance after deposit: 760
+(563024) Cannot withdraw money, balance lower than 1000
+(563024) Balance after deposit: 990
+(563024) Cannot withdraw money, balance lower than 1000
+(563024) Balance after deposit: 1220
+(563024) Balance after withdraw: 220
+(563024) Balance after deposit: 450
+(563024) Cannot withdraw money, balance lower than 1000
+(563024) Balance after deposit: 680
+(563024) Cannot withdraw money, balance lower than 1000
+(563024) Balance after deposit: 910
+(563024) Cannot withdraw money, balance lower than 1000
+(563024) Balance after deposit: 1140
+(563024) Balance after withdraw: 140
+(563024) Balance after deposit: 370
+(563024) Cannot withdraw money, balance lower than 1000
+(563024) Balance after deposit: 600
+(563024) Cannot withdraw money, balance lower than 1000
+(563024) Balance after deposit: 830
+(563024) Cannot withdraw money, balance lower than 1000
+(563024) Balance after deposit: 1060
+(563024) Balance after withdraw: 60
+(563024) Balance after deposit: 290
+(563024) Cannot withdraw money, balance lower than 1000
+(563024) Balance after deposit: 520
+(563024) Cannot withdraw money, balance lower than 1000
+(563024) Balance after deposit: 750
+(563024) Cannot withdraw money, balance lower than 1000
+Final Balance: 750

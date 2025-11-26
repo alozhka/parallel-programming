@@ -1,12 +1,12 @@
 #include "tchar.h"
 
-#include <array>
 #include <fstream>
 #include <iostream>
 #include <string>
 #include <windows.h>
 
-CRITICAL_SECTION GlobalCriticalSection;
+HANDLE GlobalMutex = nullptr;
+// CRITICAL_SECTION GlobalCriticalSection;
 
 struct threadData
 {
@@ -38,18 +38,24 @@ int GetBalance()
 
 void Deposit(int money)
 {
-	EnterCriticalSection(&GlobalCriticalSection);
+	WaitForSingleObject(GlobalMutex, INFINITE);
+	// EnterCriticalSection(&GlobalCriticalSection);
+
 	int balance = GetBalance();
 	balance += money;
 
 	WriteToFile(balance);
 	printf("(%d) Balance after deposit: %d\n", GetCurrentProcessId(), balance);
-	LeaveCriticalSection(&GlobalCriticalSection);
+
+	ReleaseMutex(GlobalMutex);
+	// LeaveCriticalSection(&GlobalCriticalSection);
 }
 
 void Withdraw(int money)
 {
-	EnterCriticalSection(&GlobalCriticalSection);
+	WaitForSingleObject(GlobalMutex, INFINITE);
+	// EnterCriticalSection(&GlobalCriticalSection);
+
 	if (GetBalance() < money)
 	{
 		printf("(%d) Cannot withdraw money, balance lower than %d\n", GetCurrentProcessId(), money);
@@ -63,7 +69,8 @@ void Withdraw(int money)
 		printf("(%d) Balance after withdraw: %d\n", GetCurrentProcessId(), balance);
 	}
 
-	LeaveCriticalSection(&GlobalCriticalSection);
+	ReleaseMutex(GlobalMutex);
+	// LeaveCriticalSection(&GlobalCriticalSection);
 }
 
 DWORD WINAPI DoDeposit(CONST LPVOID lpParameter)
@@ -84,9 +91,13 @@ int main()
 {
 	auto* handles = new HANDLE[49];
 
-	InitializeCriticalSection(&GlobalCriticalSection);
+	GlobalMutex = CreateMutex(nullptr, false, "Lw5PPGlobalMutex");
+	// InitializeCriticalSection(&GlobalCriticalSection);
 
+	WaitForSingleObject(GlobalMutex, INFINITE);
 	WriteToFile(0);
+	printf("(%d) Balance is set to 0\n", GetCurrentProcessId());
+	ReleaseMutex(GlobalMutex);
 
 	SetProcessAffinityMask(GetCurrentProcess(), 1);
 	for (int i = 0; i < 50; i++)
@@ -99,11 +110,10 @@ int main()
 
 	// ожидание окончания работы двух потоков
 	WaitForMultipleObjects(50, handles, true, INFINITE);
-	printf("Final Balance: %d\n", GetBalance());
+	printf("(%d) Final Balance: %d\n", GetCurrentProcessId(), GetBalance());
 
-	getchar();
-
-	DeleteCriticalSection(&GlobalCriticalSection);
+	CloseHandle(GlobalMutex);
+	// DeleteCriticalSection(&GlobalCriticalSection);
 
 	return 0;
 }
