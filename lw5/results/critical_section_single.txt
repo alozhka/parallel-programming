@@ -1,51 +1,51 @@
-(313604) Balance after deposit: 230
-(313604) Cannot withdraw money, balance lower than 1000
-(313604) Balance after deposit: 460
-(313604) Cannot withdraw money, balance lower than 1000
-(313604) Balance after deposit: 690
-(313604) Cannot withdraw money, balance lower than 1000
-(313604) Balance after deposit: 920
-(313604) Cannot withdraw money, balance lower than 1000
-(313604) Balance after deposit: 1150
-(313604) Balance after withdraw: 150
-(313604) Balance after deposit: 380
-(313604) Cannot withdraw money, balance lower than 1000
-(313604) Balance after deposit: 610
-(313604) Cannot withdraw money, balance lower than 1000
-(313604) Balance after deposit: 840
-(313604) Cannot withdraw money, balance lower than 1000
-(313604) Balance after deposit: 1070
-(313604) Balance after withdraw: 70
-(313604) Balance after deposit: 300
-(313604) Cannot withdraw money, balance lower than 1000
-(313604) Balance after deposit: 530
-(313604) Cannot withdraw money, balance lower than 1000
-(313604) Balance after deposit: 760
-(313604) Cannot withdraw money, balance lower than 1000
-(313604) Balance after deposit: 990
-(313604) Cannot withdraw money, balance lower than 1000
-(313604) Balance after deposit: 1220
-(313604) Balance after withdraw: 220
-(313604) Balance after deposit: 450
-(313604) Cannot withdraw money, balance lower than 1000
-(313604) Balance after deposit: 680
-(313604) Cannot withdraw money, balance lower than 1000
-(313604) Balance after deposit: 910
-(313604) Cannot withdraw money, balance lower than 1000
-(313604) Balance after deposit: 1140
-(313604) Balance after withdraw: 140
-(313604) Balance after deposit: 370
-(313604) Cannot withdraw money, balance lower than 1000
-(313604) Balance after deposit: 600
-(313604) Cannot withdraw money, balance lower than 1000
-(313604) Balance after deposit: 830
-(313604) Cannot withdraw money, balance lower than 1000
-(313604) Balance after deposit: 1060
-(313604) Balance after withdraw: 60
-(313604) Balance after deposit: 290
-(313604) Cannot withdraw money, balance lower than 1000
-(313604) Balance after deposit: 520
-(313604) Cannot withdraw money, balance lower than 1000
-(313604) Balance after deposit: 750
-(313604) Cannot withdraw money, balance lower than 1000
+(474208) Balance after deposit: 230
+(474208) Cannot withdraw money, balance lower than 1000
+(474208) Balance after deposit: 460
+(474208) Cannot withdraw money, balance lower than 1000
+(474208) Balance after deposit: 690
+(474208) Cannot withdraw money, balance lower than 1000
+(474208) Balance after deposit: 920
+(474208) Cannot withdraw money, balance lower than 1000
+(474208) Balance after deposit: 1150
+(474208) Balance after withdraw: 150
+(474208) Balance after deposit: 380
+(474208) Cannot withdraw money, balance lower than 1000
+(474208) Balance after deposit: 610
+(474208) Cannot withdraw money, balance lower than 1000
+(474208) Balance after deposit: 840
+(474208) Cannot withdraw money, balance lower than 1000
+(474208) Balance after deposit: 1070
+(474208) Balance after withdraw: 70
+(474208) Balance after deposit: 300
+(474208) Cannot withdraw money, balance lower than 1000
+(474208) Balance after deposit: 530
+(474208) Cannot withdraw money, balance lower than 1000
+(474208) Balance after deposit: 760
+(474208) Cannot withdraw money, balance lower than 1000
+(474208) Balance after deposit: 990
+(474208) Cannot withdraw money, balance lower than 1000
+(474208) Balance after deposit: 1220
+(474208) Balance after withdraw: 220
+(474208) Balance after deposit: 450
+(474208) Cannot withdraw money, balance lower than 1000
+(474208) Balance after deposit: 680
+(474208) Cannot withdraw money, balance lower than 1000
+(474208) Balance after deposit: 910
+(474208) Cannot withdraw money, balance lower than 1000
+(474208) Balance after deposit: 1140
+(474208) Balance after withdraw: 140
+(474208) Balance after deposit: 370
+(474208) Cannot withdraw money, balance lower than 1000
+(474208) Balance after deposit: 600
+(474208) Cannot withdraw money, balance lower than 1000
+(474208) Balance after deposit: 830
+(474208) Cannot withdraw money, balance lower than 1000
+(474208) Balance after deposit: 1060
+(474208) Balance after withdraw: 60
+(474208) Balance after deposit: 290
+(474208) Cannot withdraw money, balance lower than 1000
+(474208) Balance after deposit: 520
+(474208) Cannot withdraw money, balance lower than 1000
+(474208) Balance after deposit: 750
+(474208) Cannot withdraw money, balance lower than 1000
 Final Balance: 750

@@ -1,0 +1,91 @@
+ (521880) Balance after deposit: 460
+(521880) Cannot withdraw money, balance lower than 1000
+(521880) Balance after deposit: 690
+(521880) Cannot withdraw money, balance lower than 1000
+(521880) Balance after deposit: 920
+(521880) Cannot withdraw money, balance lower than 1000
+(521880) Balance after deposit: 1150
+(521660) Balance after withdraw: 150
+(521660) Balance after deposit: 380
+(521660) Cannot withdraw money, balance lower than 1000
+(521660) Balance after deposit: 610
+(521660) Cannot withdraw money, balance lower than 1000
+(521660) Balance after deposit: 840
+(521660) Cannot withdraw money, balance lower than 1000
+(521660) Balance after deposit: 1070
+(521660) Balance after withdraw: 70
+(521880) Balance after withdraw: -930
+(521660) Balance after deposit: -700
+(521880) Balance after deposit: -470
+(521660) Cannot withdraw money, balance lower than 1000
+(521880) Cannot withdraw money, balance lower than 1000
+(521660) Balance after deposit: -240
+(521880) Balance after deposit: -10
+(521660) Cannot withdraw money, balance lower than 1000
+(521880) Cannot withdraw money, balance lower than 1000
+(521660) Balance after deposit: 220
+(521880) Balance after deposit: 450
+(521660) Cannot withdraw money, balance lower than 1000
+(521880) Cannot withdraw money, balance lower than 1000
+(521660) Balance after deposit: 680
+(521880) Balance after deposit: 910
+(521660) Cannot withdraw money, balance lower than 1000
+(521880) Cannot withdraw money, balance lower than 1000
+(521660) Balance after deposit: 1140
+(521880) Balance after deposit: 1370
+(521880) Balance after withdraw: 370
+(521880) Balance after deposit: 600
+(521660) Balance after withdraw: -400
+(521880) Cannot withdraw money, balance lower than 1000
+(521660) Balance after deposit: -170
+(521880) Balance after deposit: 60
+(521660) Cannot withdraw money, balance lower than 1000
+(521880) Cannot withdraw money, balance lower than 1000
+(521660) Balance after deposit: 290
+(521880) Balance after deposit: 520
+(521660) Cannot withdraw money, balance lower than 1000
+(521880) Cannot withdraw money, balance lower than 1000
+(521660) Balance after deposit: 750
+(521660) Cannot withdraw money, balance lower than 1000
+(521660) Balance after deposit: 1210
+(521880) Balance after deposit: 980
+(521880) Balance after withdraw: 210
+(521880) Balance after deposit: 440
+(521660) Balance after withdraw: -560
+(521880) Cannot withdraw money, balance lower than 1000
+(521660) Balance after deposit: -330
+(521880) Balance after deposit: -100
+(521660) Cannot withdraw money, balance lower than 1000
+(521880) Cannot withdraw money, balance lower than 1000
+(521880) Balance after deposit: 360
+(521660) Balance after deposit: 130
+(521880) Cannot withdraw money, balance lower than 1000
+(521660) Cannot withdraw money, balance lower than 1000
+(521880) Balance after deposit: 590
+(521660) Balance after deposit: 820
+(521880) Cannot withdraw money, balance lower than 1000
+(521660) Cannot withdraw money, balance lower than 1000
+(521880) Balance after deposit: 1050
+(521660) Balance after deposit: 1280
+(521660) Balance after withdraw: 280
+(521880) Balance after withdraw: -720
+(521660) Balance after deposit: -490
+(521880) Balance after deposit: 230
+(521660) Cannot withdraw money, balance lower than 1000
+(521880) Cannot withdraw money, balance lower than 1000
+(521660) Balance after deposit: 460
+(521880) Balance after deposit: 690
+(521660) Cannot withdraw money, balance lower than 1000
+(521880) Cannot withdraw money, balance lower than 1000
+(521660) Balance after deposit: 920
+(521880) Balance after deposit: 1150
+(521880) Balance after withdraw: 150
+(521880) Balance after deposit: 380
+(521660) Balance after withdraw: -620
+(521880) Cannot withdraw money, balance lower than 1000
+(521880) Balance after deposit: -390
+(521880) Cannot withdraw money, balance lower than 1000
+(521880) Balance after deposit: -160
+Final Balance: -160
+(521880) Cannot withdraw money, balance lower than 1000
+Final Balance: -160

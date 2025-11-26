@@ -101,6 +101,8 @@ int main()
 	WaitForMultipleObjects(50, handles, true, INFINITE);
 	printf("Final Balance: %d\n", GetBalance());
 
+	getchar();
+
 	DeleteCriticalSection(&GlobalCriticalSection);
 
 	return 0;
