@@ -4,7 +4,7 @@
 #include <string>
 #include <windows.h>
 
-HANDLE GlobalMutex = nullptr;
+CRITICAL_SECTION GlobalCriticalSection;
 CRITICAL_SECTION FileLockingCriticalSection;
 
 struct threadData
@@ -41,30 +41,32 @@ int GetBalance()
 
 void Deposit(int money)
 {
-	WaitForSingleObject(GlobalMutex, INFINITE);
+	EnterCriticalSection(&GlobalCriticalSection);
 	int balance = GetBalance();
 	balance += money;
 
 	WriteToFile(balance);
 	printf("Balance after deposit: %d\n", balance);
-	ReleaseMutex(GlobalMutex);
+	LeaveCriticalSection(&GlobalCriticalSection);
 }
 
 void Withdraw(int money)
 {
-	WaitForSingleObject(GlobalMutex, INFINITE);
+	EnterCriticalSection(&GlobalCriticalSection);
 	if (GetBalance() < money)
 	{
 		printf("Cannot withdraw money, balance lower than %d\n", money);
-		return;
+	}
+	else
+	{
+		Sleep(20);
+		int balance = GetBalance();
+		balance -= money;
+		WriteToFile(balance);
+		printf("Balance after withdraw: %d\n", balance);
 	}
 
-	Sleep(20);
-	int balance = GetBalance();
-	balance -= money;
-	WriteToFile(balance);
-	printf("Balance after withdraw: %d\n", balance);
-	ReleaseMutex(GlobalMutex);
+	LeaveCriticalSection(&GlobalCriticalSection);
 }
 
 DWORD WINAPI DoDeposit(CONST LPVOID lpParameter)
@@ -83,9 +85,9 @@ DWORD WINAPI DoWithdraw(CONST LPVOID lpParameter)
 
 int _tmain()
 {
-	GlobalMutex = CreateMutex(nullptr, false, "GlobalBalanceMutex");
 	auto* handles = new HANDLE[49];
 
+	InitializeCriticalSection(&GlobalCriticalSection);
 	InitializeCriticalSection(&FileLockingCriticalSection);
 
 	WriteToFile(0);
