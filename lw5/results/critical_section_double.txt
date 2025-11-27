@@ -1,91 +1,108 @@
- (521880) Balance after deposit: 460
-(521880) Cannot withdraw money, balance lower than 1000
-(521880) Balance after deposit: 690
-(521880) Cannot withdraw money, balance lower than 1000
-(521880) Balance after deposit: 920
-(521880) Cannot withdraw money, balance lower than 1000
-(521880) Balance after deposit: 1150
-(521660) Balance after withdraw: 150
-(521660) Balance after deposit: 380
-(521660) Cannot withdraw money, balance lower than 1000
-(521660) Balance after deposit: 610
-(521660) Cannot withdraw money, balance lower than 1000
-(521660) Balance after deposit: 840
-(521660) Cannot withdraw money, balance lower than 1000
-(521660) Balance after deposit: 1070
-(521660) Balance after withdraw: 70
-(521880) Balance after withdraw: -930
-(521660) Balance after deposit: -700
-(521880) Balance after deposit: -470
-(521660) Cannot withdraw money, balance lower than 1000
-(521880) Cannot withdraw money, balance lower than 1000
-(521660) Balance after deposit: -240
-(521880) Balance after deposit: -10
-(521660) Cannot withdraw money, balance lower than 1000
-(521880) Cannot withdraw money, balance lower than 1000
-(521660) Balance after deposit: 220
-(521880) Balance after deposit: 450
-(521660) Cannot withdraw money, balance lower than 1000
-(521880) Cannot withdraw money, balance lower than 1000
-(521660) Balance after deposit: 680
-(521880) Balance after deposit: 910
-(521660) Cannot withdraw money, balance lower than 1000
-(521880) Cannot withdraw money, balance lower than 1000
-(521660) Balance after deposit: 1140
-(521880) Balance after deposit: 1370
-(521880) Balance after withdraw: 370
-(521880) Balance after deposit: 600
-(521660) Balance after withdraw: -400
-(521880) Cannot withdraw money, balance lower than 1000
-(521660) Balance after deposit: -170
-(521880) Balance after deposit: 60
-(521660) Cannot withdraw money, balance lower than 1000
-(521880) Cannot withdraw money, balance lower than 1000
-(521660) Balance after deposit: 290
-(521880) Balance after deposit: 520
-(521660) Cannot withdraw money, balance lower than 1000
-(521880) Cannot withdraw money, balance lower than 1000
-(521660) Balance after deposit: 750
-(521660) Cannot withdraw money, balance lower than 1000
-(521660) Balance after deposit: 1210
-(521880) Balance after deposit: 980
-(521880) Balance after withdraw: 210
-(521880) Balance after deposit: 440
-(521660) Balance after withdraw: -560
-(521880) Cannot withdraw money, balance lower than 1000
-(521660) Balance after deposit: -330
-(521880) Balance after deposit: -100
-(521660) Cannot withdraw money, balance lower than 1000
-(521880) Cannot withdraw money, balance lower than 1000
-(521880) Balance after deposit: 360
-(521660) Balance after deposit: 130
-(521880) Cannot withdraw money, balance lower than 1000
-(521660) Cannot withdraw money, balance lower than 1000
-(521880) Balance after deposit: 590
-(521660) Balance after deposit: 820
-(521880) Cannot withdraw money, balance lower than 1000
-(521660) Cannot withdraw money, balance lower than 1000
-(521880) Balance after deposit: 1050
-(521660) Balance after deposit: 1280
-(521660) Balance after withdraw: 280
-(521880) Balance after withdraw: -720
-(521660) Balance after deposit: -490
-(521880) Balance after deposit: 230
-(521660) Cannot withdraw money, balance lower than 1000
-(521880) Cannot withdraw money, balance lower than 1000
-(521660) Balance after deposit: 460
-(521880) Balance after deposit: 690
-(521660) Cannot withdraw money, balance lower than 1000
-(521880) Cannot withdraw money, balance lower than 1000
-(521660) Balance after deposit: 920
-(521880) Balance after deposit: 1150
-(521880) Balance after withdraw: 150
-(521880) Balance after deposit: 380
-(521660) Balance after withdraw: -620
-(521880) Cannot withdraw money, balance lower than 1000
-(521880) Balance after deposit: -390
-(521880) Cannot withdraw money, balance lower than 1000
-(521880) Balance after deposit: -160
-Final Balance: -160
-(521880) Cannot withdraw money, balance lower than 1000
-Final Balance: -160
+[09:15:37.481] (14468) Started
+[09:15:37.482] (14468) Balance is set to 0
+[09:15:37.487] (14468) Balance after deposit: 230
+[09:15:37.488] (14468) Cannot withdraw money, balance lower than 1000
+[09:15:37.488] (14468) Balance after deposit: 460
+[09:15:37.488] (14468) Cannot withdraw money, balance lower than 1000
+[09:15:37.490] (14468) Balance after deposit: -310
+[09:15:37.491] (14468) Cannot withdraw money, balance lower than 1000
+[09:15:37.492] (14468) Balance after deposit: 150
+[09:15:37.494] (14468) Cannot withdraw money, balance lower than 1000
+[09:15:37.496] (14468) Balance after deposit: 610
+[09:15:37.497] (14468) Cannot withdraw money, balance lower than 1000
+[09:15:37.497] (14468) Balance after deposit: 1070
+[09:15:37.522] (14468) Balance after withdraw: -700
+[09:15:37.524] (14468) Balance after deposit: -240
+[09:15:37.524] (14468) Cannot withdraw money, balance lower than 1000
+[09:15:37.527] (14468) Balance after deposit: 220
+[09:15:37.528] (14468) Cannot withdraw money, balance lower than 1000
+[09:15:37.530] (14468) Balance after deposit: 680
+[09:15:37.530] (14468) Cannot withdraw money, balance lower than 1000
+[09:15:37.532] (14468) Balance after deposit: 1140
+[09:15:37.554] (14468) Balance after withdraw: 140
+[09:15:37.555] (14468) Balance after deposit: -630
+[09:15:37.556] (14468) Cannot withdraw money, balance lower than 1000
+[09:15:37.558] (14468) Balance after deposit: -170
+[09:15:37.558] (14468) Cannot withdraw money, balance lower than 1000
+[09:15:37.559] (14468) Balance after deposit: 290
+[09:15:37.560] (14468) Cannot withdraw money, balance lower than 1000
+[09:15:37.562] (14468) Balance after deposit: 750
+[09:15:37.563] (14468) Cannot withdraw money, balance lower than 1000
+[09:15:37.564] (14468) Balance after deposit: 1210
+[09:15:37.585] (14468) Balance after withdraw: 210
+[09:15:37.588] (14468) Balance after deposit: 440
+[09:15:37.588] (14468) Cannot withdraw money, balance lower than 1000
+[09:15:37.589] (14468) Balance after deposit: 670
+[09:15:37.589] (14468) Cannot withdraw money, balance lower than 1000
+[09:15:37.590] (14468) Balance after deposit: 900
+[09:15:37.590] (14468) Cannot withdraw money, balance lower than 1000
+[09:15:37.591] (14468) Balance after deposit: 1130
+[09:15:37.616] (14468) Balance after withdraw: 50
+[09:15:37.617] (14468) Balance after deposit: 280
+[09:15:37.617] (14468) Cannot withdraw money, balance lower than 1000
+[09:15:37.618] (14468) Balance after deposit: 510
+[09:15:37.618] (14468) Cannot withdraw money, balance lower than 1000
+[09:15:37.619] (14468) Balance after deposit: 740
+[09:15:37.619] (14468) Cannot withdraw money, balance lower than 1000
+[09:15:37.620] (14468) Balance after deposit: 970
+[09:15:37.620] (14468) Cannot withdraw money, balance lower than 1000
+[09:15:37.621] (14468) Balance after deposit: 1200
+[09:15:37.647] (14468) Balance after withdraw: -110
+[09:15:37.648] (14468) Balance after deposit: 120
+[09:15:37.649] (14468) Cannot withdraw money, balance lower than 1000
+[09:15:37.649] (14468) Final Balance: 120
+
+# Другая консоль
+[09:15:37.438] (16604) Started
+[09:15:37.439] (16604) Balance is set to 0
+[09:15:37.448] (16604) Balance after deposit: 230
+[09:15:37.448] (16604) Cannot withdraw money, balance lower than 1000
+[09:15:37.450] (16604) Balance after deposit: 460
+[09:15:37.462] (16604) Cannot withdraw money, balance lower than 1000
+[09:15:37.464] (16604) Balance after deposit: 690
+[09:15:37.465] (16604) Cannot withdraw money, balance lower than 1000
+[09:15:37.465] (16604) Balance after deposit: 920
+[09:15:37.466] (16604) Cannot withdraw money, balance lower than 1000
+[09:15:37.467] (16604) Balance after deposit: 1150
+[09:15:37.489] (16604) Balance after withdraw: -540
+[09:15:37.491] (16604) Balance after deposit: -80
+[09:15:37.491] (16604) Cannot withdraw money, balance lower than 1000
+[09:15:37.493] (16604) Balance after deposit: 380
+[09:15:37.494] (16604) Cannot withdraw money, balance lower than 1000
+[09:15:37.495] (16604) Balance after deposit: 230
+[09:15:37.496] (16604) Cannot withdraw money, balance lower than 1000
+[09:15:37.496] (16604) Balance after deposit: 840
+[09:15:37.497] (16604) Cannot withdraw money, balance lower than 1000
+[09:15:37.498] (16604) Balance after deposit: 1300
+[09:15:37.522] (16604) Balance after withdraw: 300
+[09:15:37.523] (16604) Balance after deposit: -470
+[09:15:37.524] (16604) Cannot withdraw money, balance lower than 1000
+[09:15:37.526] (16604) Balance after deposit: -10
+[09:15:37.527] (16604) Cannot withdraw money, balance lower than 1000
+[09:15:37.529] (16604) Balance after deposit: 450
+[09:15:37.530] (16604) Cannot withdraw money, balance lower than 1000
+[09:15:37.531] (16604) Balance after deposit: 910
+[09:15:37.554] (16604) Balance after withdraw: -860
+[09:15:37.556] (16604) Balance after deposit: -400
+[09:15:37.556] (16604) Cannot withdraw money, balance lower than 1000
+[09:15:37.558] (16604) Balance after deposit: 60
+[09:15:37.558] (16604) Cannot withdraw money, balance lower than 1000
+[09:15:37.560] (16604) Balance after deposit: 520
+[09:15:37.560] (16604) Cannot withdraw money, balance lower than 1000
+[09:15:37.564] (16604) Balance after deposit: 980
+[09:15:37.601] (16604) Balance after withdraw: 130
+[09:15:37.602] (16604) Balance after deposit: 360
+[09:15:37.602] (16604) Cannot withdraw money, balance lower than 1000
+[09:15:37.603] (16604) Balance after deposit: 590
+[09:15:37.603] (16604) Cannot withdraw money, balance lower than 1000
+[09:15:37.604] (16604) Balance after deposit: 820
+[09:15:37.604] (16604) Cannot withdraw money, balance lower than 1000
+[09:15:37.605] (16604) Balance after deposit: 1050
+[09:15:37.631] (16604) Balance after withdraw: 200
+[09:15:37.632] (16604) Balance after deposit: 430
+[09:15:37.632] (16604) Cannot withdraw money, balance lower than 1000
+[09:15:37.633] (16604) Balance after deposit: 660
+[09:15:37.633] (16604) Cannot withdraw money, balance lower than 1000
+[09:15:37.634] (16604) Balance after deposit: 890
+[09:15:37.634] (16604) Cannot withdraw money, balance lower than 1000
+[09:15:37.634] (16604) Final Balance: 890

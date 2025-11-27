@@ -1,0 +1,53 @@
+[09:50:07.957] (2184) Started
+[09:50:07.958] (2184) Balance is set to 0
+[09:50:07.960] (2184) Cannot withdraw money, balance lower than 1000
+[09:50:07.961] (2184) Balance after deposit: 230
+[09:50:07.962] [09:50:07.962] (2184) Cannot withdraw money, balance lower than 1000
+[09:50:07.964] (2184) Balance after deposit: 460
+(2184) Cannot withdraw money, balance lower than 1000
+[09:50:07.967] (2184) Balance after deposit: 920
+[09:50:07.966] (2184) Balance after deposit: 690
+[09:50:07.962] (2184) Cannot withdraw money, balance lower than 1000
+[09:50:07.965] (2184) Cannot withdraw money, balance lower than 1000
+[09:50:07.963] (2184) Balance after deposit: 460
+[09:50:07.969] (2184) Balance after deposit: 1380
+[09:50:07.967] (2184) Cannot withdraw money, balance lower than 1000
+[09:50:07.968] (2184) Balance after deposit: 1150
+[09:50:07.971] (2184) Balance after deposit: 1840
+[09:50:07.970] (2184) Balance after deposit: 1610
+[09:50:07.971] (2184) Balance after deposit: 2070
+[09:50:07.972] (2184) Balance after deposit: 2300
+[09:50:07.971] (2184) Cannot withdraw money, balance lower than 1000
+[09:50:07.973] (2184) Balance after deposit: 2530
+[09:50:07.974] (2184) Balance after deposit: 2760
+[09:50:07.975] (2184) Balance after deposit: 2990
+[09:50:07.976] (2184) Balance after deposit: 3220
+[09:50:07.977] (2184) Balance after deposit: 3220
+[09:50:07.978] (2184) Cannot withdraw money, balance lower than 1000
+[09:50:07.978] (2184) Balance after deposit: 3220
+[09:50:07.981] (2184) Balance after deposit: 3680
+[09:50:07.982] (2184) Balance after deposit: 3680
+[09:50:07.981] (2184) Balance after deposit: 3680
+[09:50:07.983] (2184) Balance after deposit: 3680
+[09:50:07.983] (2184) Balance after deposit: 3450
+[09:50:07.983] (2184) Balance after deposit: 3680
+[09:50:07.985] (2184) Balance after deposit: 1840
+[09:50:07.986] (2184) Balance after deposit: 3680
+[09:50:07.995] (2184) Balance after withdraw: 2680
+[09:50:07.997] (2184) Balance after withdraw: 1680
+[09:50:07.998] (2184) Balance after withdraw: 1680
+[09:50:07.998] (2184) Balance after withdraw: 1680
+[09:50:07.999] (2184) Balance after withdraw: 680
+[09:50:07.998] (2184) Balance after withdraw: 1680
+[09:50:08.000] (2184) Balance after withdraw: 1680
+[09:50:08.000] (2184) Balance after withdraw: 1680
+[09:50:08.000] (2184) Balance after withdraw: 1680
+[09:50:08.010] (2184) Balance after withdraw: 680
+[09:50:08.011] (2184) Balance after withdraw: -320
+[09:50:08.011] (2184) Balance after withdraw: -1320
+[09:50:08.012] (2184) Balance after withdraw: -2320
+[09:50:08.013] (2184) Balance after withdraw: -3320
+[09:50:08.013] [09:50:08.014] (2184) Balance after withdraw: -5320
+(2184) Balance after withdraw: -4320
+[09:50:08.014] (2184) Balance after withdraw: -6320
+[09:50:08.015] (2184) Final Balance: -6320

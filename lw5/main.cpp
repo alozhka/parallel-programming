@@ -6,9 +6,9 @@
 #include <format>
 #include <windows.h>
 
-constexpr LPCSTR MUTEX_NAME = R"(Lw5PPGlobalMutex)";
-HANDLE GlobalMutex = nullptr;
-// CRITICAL_SECTION GlobalCriticalSection;
+// constexpr LPCSTR MUTEX_NAME = R"(Lw5PPGlobalMutex)";
+// HANDLE GlobalMutex = nullptr;
+CRITICAL_SECTION GlobalCriticalSection;
 
 struct threadData
 {
@@ -58,7 +58,7 @@ int GetBalance()
 
 void Deposit(int money)
 {
-	WaitForSingleObject(GlobalMutex, INFINITE);
+	// WaitForSingleObject(GlobalMutex, INFINITE);
 	// EnterCriticalSection(&GlobalCriticalSection);
 
 	int balance = GetBalance();
@@ -67,13 +67,13 @@ void Deposit(int money)
 	WriteToFile(balance);
 	PrintWithTime(GetCurrentProcessId(), "Balance after deposit", balance);
 
-	ReleaseMutex(GlobalMutex);
+	// ReleaseMutex(GlobalMutex);
 	// LeaveCriticalSection(&GlobalCriticalSection);
 }
 
 void Withdraw(int money)
 {
-	WaitForSingleObject(GlobalMutex, INFINITE);
+	// WaitForSingleObject(GlobalMutex, INFINITE);
 	// EnterCriticalSection(&GlobalCriticalSection);
 
 	if (GetBalance() < money)
@@ -89,7 +89,7 @@ void Withdraw(int money)
 		PrintWithTime(GetCurrentProcessId(), "Balance after withdraw", balance);
 	}
 
-	ReleaseMutex(GlobalMutex);
+	// ReleaseMutex(GlobalMutex);
 	// LeaveCriticalSection(&GlobalCriticalSection);
 }
 
@@ -111,14 +111,16 @@ int main()
 {
 	auto* handles = new HANDLE[50];
 
-	GlobalMutex = CreateMutex(nullptr, false, MUTEX_NAME);
-	// InitializeCriticalSection(&GlobalCriticalSection);
+	// GlobalMutex = CreateMutex(nullptr, false, MUTEX_NAME);
+	InitializeCriticalSection(&GlobalCriticalSection);
 	PrintWithTime(GetCurrentProcessId(), "Started");
 
-	WaitForSingleObject(GlobalMutex, INFINITE);
+	// WaitForSingleObject(GlobalMutex, INFINITE);
+	// EnterCriticalSection(&GlobalCriticalSection);
 	WriteToFile(0);
 	PrintWithTime(GetCurrentProcessId(), "Balance is set to 0");
-	ReleaseMutex(GlobalMutex);
+	// ReleaseMutex(GlobalMutex);
+	// LeaveCriticalSection(&GlobalCriticalSection);
 
 	SetProcessAffinityMask(GetCurrentProcess(), 1);
 	for (int i = 0; i < 50; i++)
@@ -129,12 +131,11 @@ int main()
 		ResumeThread(handles[i]);
 	}
 
-	// ожидание окончания работы двух потоков
 	WaitForMultipleObjects(50, handles, true, INFINITE);
 	PrintWithTime(GetCurrentProcessId(), "Final Balance", GetBalance());
 
-	CloseHandle(GlobalMutex);
-	// DeleteCriticalSection(&GlobalCriticalSection);
+	// CloseHandle(GlobalMutex);
+	DeleteCriticalSection(&GlobalCriticalSection);
 
 	getchar();
 	return 0;

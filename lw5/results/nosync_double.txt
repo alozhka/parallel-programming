@@ -1,0 +1,108 @@
+[09:50:36.579] (3856) Started
+[09:50:36.579] (3856) Balance is set to 0
+[09:50:36.592] (3856) Cannot withdraw money, balance lower than 1000
+[09:50:36.593] (3856) Balance after deposit: 230
+[09:50:36.593] (3856) Cannot withdraw money, balance lower than 1000
+[09:50:36.594] (3856) Balance after deposit: 460
+[09:50:36.594] (3856) Balance after deposit: 690
+[09:50:36.595] (3856) Balance after deposit: 920
+[09:50:36.596] (3856) Balance after deposit: 1150
+[09:50:36.595] (3856) Cannot withdraw money, balance lower than 1000
+[09:50:36.597] (3856) Balance after deposit: 1380
+[09:50:36.595] (3856) Cannot withdraw money, balance lower than 1000
+[09:50:36.598] (3856) Balance after deposit: 1840
+[09:50:36.602] (3856) Cannot withdraw money, balance lower than 1000
+[09:50:36.603] (3856) Balance after deposit: 230
+[09:50:36.604] (3856) Cannot withdraw money, balance lower than 1000
+[09:50:36.604] (3856) Cannot withdraw money, balance lower than 1000
+[09:50:36.604] (3856) Cannot withdraw money, balance lower than 1000
+[09:50:36.606] (3856) Cannot withdraw money, balance lower than 1000
+[09:50:36.608] (3856) Balance after deposit: 1380
+[09:50:36.606] (3856) Balance after deposit: 920
+[09:50:36.605] (3856) Balance after deposit: 690
+[09:50:36.606] (3856) Cannot withdraw money, balance lower than 1000
+[09:50:36.607] (3856) Balance after deposit: 1150
+[09:50:36.610] (3856) Balance after deposit: 2070
+[09:50:36.611] (3856) Balance after deposit: 2300
+[09:50:36.609] (3856) Balance after deposit: 1610
+[09:50:36.612] (3856) Balance after deposit: 230
+[09:50:36.613] (3856) Balance after deposit: 460
+[09:50:36.610] (3856) Balance after deposit: 1840
+[09:50:36.614] (3856) Cannot withdraw money, balance lower than 1000
+[09:50:36.615] (3856) Balance after deposit: 1610
+[09:50:36.615] [09:50:36.615] (3856) Balance after deposit: 2070
+[09:50:36.616] (3856) Balance after deposit: 460
+[09:50:36.616] (3856) Balance after deposit: 2300
+[09:50:36.616] (3856) Balance after deposit: 2760
+(3856) Balance after deposit: 690
+[09:50:36.616] (3856) Balance after deposit: 2530
+[09:50:36.618] (3856) Balance after withdraw: 1760
+[09:50:36.619] (3856) Balance after withdraw: 760
+[09:50:36.620] (3856) Balance after withdraw: -240
+[09:50:36.639] (3856) Balance after withdraw: 840
+[09:50:36.644] (3856) Balance after withdraw: 1530
+[09:50:36.647] (3856) Balance after withdraw: 530
+[09:50:36.651] [09:50:36.651] (3856) Balance after withdraw: -1010
+(3856) Balance after withdraw: -10
+[09:50:36.652] (3856) Balance after withdraw: -2010
+[09:50:36.653] (3856) Balance after withdraw: -3010
+[09:50:36.654] (3856) Balance after withdraw: -4010
+[09:50:36.655] (3856) Balance after withdraw: -5010
+[09:50:36.657] (3856) Balance after withdraw: -5780
+[09:50:36.657] (3856) Balance after withdraw: -6780
+[09:50:36.662] (3856) Final Balance: -5170
+
+# Другая консоль
+[09:50:36.623] (14876) Started
+[09:50:36.624] (14876) Balance is set to 0
+[09:50:36.627] (14876) Cannot withdraw money, balance lower than 1000
+[09:50:36.628] (14876) Balance after deposit: 230
+[09:50:36.628] (14876) Balance after deposit: 460
+[09:50:36.629] (14876) Balance after deposit: 690
+[09:50:36.629] [09:50:36.630] (14876) Balance after deposit: 920
+[09:50:36.630] (14876) Balance after deposit: 1150
+[09:50:36.630] (14876) Cannot withdraw money, balance lower than 1000
+(14876) Cannot withdraw money, balance lower than 1000
+[09:50:36.637] (14876) Balance after deposit: 1840
+[09:50:36.640] (14876) Balance after deposit: 1300
+[09:50:36.641] (14876) Balance after deposit: 1840
+[09:50:36.642] (14876) Balance after deposit: 2300
+[09:50:36.639] (14876) Balance after deposit: 1070
+[09:50:36.642] (14876) Balance after deposit: 2070
+[09:50:36.640] (14876) Balance after deposit: 1530
+[09:50:36.643] (14876) Balance after deposit: 1610
+[09:50:36.644] [09:50:36.646] (14876) Balance after deposit: 2530
+(14876) Balance after deposit: 1380
+[09:50:36.648] [09:50:36.649] (14876) Balance after deposit: 760
+(14876) Cannot withdraw money, balance lower than 1000
+[09:50:36.649] (14876) Cannot withdraw money, balance lower than 1000
+[09:50:36.650] (14876) Balance after deposit: 990
+[09:50:36.650] (14876) Cannot withdraw money, balance lower than 1000
+[09:50:36.654] (14876) Cannot withdraw money, balance lower than 1000
+[09:50:36.656] (14876) Balance after deposit: -4780
+[09:50:36.656] (14876) Cannot withdraw money, balance lower than 1000
+[09:50:36.657] [09:50:36.658] (14876) Balance after deposit: -6550
+[09:50:36.658] (14876) Balance after deposit: -6320
+(14876) Cannot withdraw money, balance lower than 1000
+[09:50:36.659] (14876) Balance after deposit: -6090
+[09:50:36.660] [09:50:36.660] (14876) Cannot withdraw money, balance lower than 1000
+[09:50:36.660] (14876) Cannot withdraw money, balance lower than 1000
+(14876) Balance after deposit: -5860
+[09:50:36.660] (14876) Balance after deposit: -5630
+[09:50:36.661] (14876) Balance after deposit: -5400
+[09:50:36.662] (14876) Balance after deposit: -5170
+[09:50:36.667] (14876) Balance after withdraw: -6170
+[09:50:36.669] [09:50:36.669] (14876) Balance after withdraw: -7170
+[09:50:36.674] (14876) Balance after withdraw: -8170
+[09:50:36.674] (14876) Balance after withdraw: -11170
+[09:50:36.670] (14876) Balance after withdraw: -8170
+[09:50:36.669] (14876) Balance after withdraw: -7170
+(14876) Balance after withdraw: -7170
+[09:50:36.671] (14876) Balance after withdraw: -9170
+[09:50:36.674] (14876) Balance after withdraw: -12170
+[09:50:36.670] (14876) Balance after withdraw: -7170
+[09:50:36.676] [09:50:36.676] (14876) Balance after withdraw: -10170
+(14876) Balance after withdraw: -9170
+[09:50:36.676] (14876) Balance after withdraw: -7170
+[09:50:36.677] (14876) Balance after withdraw: -10170
+[09:50:36.677] (14876) Final Balance: -10170
