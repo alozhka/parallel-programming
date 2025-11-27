@@ -1,51 +1,53 @@
-(563024) Cannot withdraw money, balance lower than 1000
-(563024) Balance after deposit: 230
-(563024) Balance after deposit: 460
-(563024) Cannot withdraw money, balance lower than 1000
-(563024) Balance after deposit: 690
-(563024) Cannot withdraw money, balance lower than 1000
-(563024) Balance after deposit: 920
-(563024) Cannot withdraw money, balance lower than 1000
-(563024) Balance after deposit: 1150
-(563024) Balance after withdraw: 150
-(563024) Balance after deposit: 380
-(563024) Cannot withdraw money, balance lower than 1000
-(563024) Balance after deposit: 610
-(563024) Cannot withdraw money, balance lower than 1000
-(563024) Balance after deposit: 840
-(563024) Cannot withdraw money, balance lower than 1000
-(563024) Balance after deposit: 1070
-(563024) Balance after withdraw: 70
-(563024) Balance after deposit: 300
-(563024) Cannot withdraw money, balance lower than 1000
-(563024) Balance after deposit: 530
-(563024) Cannot withdraw money, balance lower than 1000
-(563024) Balance after deposit: 760
-(563024) Cannot withdraw money, balance lower than 1000
-(563024) Balance after deposit: 990
-(563024) Cannot withdraw money, balance lower than 1000
-(563024) Balance after deposit: 1220
-(563024) Balance after withdraw: 220
-(563024) Balance after deposit: 450
-(563024) Cannot withdraw money, balance lower than 1000
-(563024) Balance after deposit: 680
-(563024) Cannot withdraw money, balance lower than 1000
-(563024) Balance after deposit: 910
-(563024) Cannot withdraw money, balance lower than 1000
-(563024) Balance after deposit: 1140
-(563024) Balance after withdraw: 140
-(563024) Balance after deposit: 370
-(563024) Cannot withdraw money, balance lower than 1000
-(563024) Balance after deposit: 600
-(563024) Cannot withdraw money, balance lower than 1000
-(563024) Balance after deposit: 830
-(563024) Cannot withdraw money, balance lower than 1000
-(563024) Balance after deposit: 1060
-(563024) Balance after withdraw: 60
-(563024) Balance after deposit: 290
-(563024) Cannot withdraw money, balance lower than 1000
-(563024) Balance after deposit: 520
-(563024) Cannot withdraw money, balance lower than 1000
-(563024) Balance after deposit: 750
-(563024) Cannot withdraw money, balance lower than 1000
-Final Balance: 750
+[08:32:10.219] (16960) Started
+[08:32:10.220] (16960) Balance is set to 0
+[08:32:10.224] (16960) Balance after deposit: 230
+[08:32:10.225] (16960) Cannot withdraw money, balance lower than 1000
+[08:32:10.226] (16960) Balance after deposit: 460
+[08:32:10.226] (16960) Cannot withdraw money, balance lower than 1000
+[08:32:10.227] (16960) Balance after deposit: 690
+[08:32:10.228] (16960) Cannot withdraw money, balance lower than 1000
+[08:32:10.229] (16960) Balance after deposit: 920
+[08:32:10.229] (16960) Cannot withdraw money, balance lower than 1000
+[08:32:10.230] (16960) Balance after deposit: 1150
+[08:32:10.264] (16960) Balance after withdraw: 150
+[08:32:10.264] (16960) Balance after deposit: 380
+[08:32:10.264] (16960) Cannot withdraw money, balance lower than 1000
+[08:32:10.265] (16960) Balance after deposit: 610
+[08:32:10.265] (16960) Cannot withdraw money, balance lower than 1000
+[08:32:10.266] (16960) Balance after deposit: 840
+[08:32:10.266] (16960) Cannot withdraw money, balance lower than 1000
+[08:32:10.267] (16960) Balance after deposit: 1070
+[08:32:10.295] (16960) Balance after withdraw: 70
+[08:32:10.297] (16960) Balance after deposit: 300
+[08:32:10.297] (16960) Cannot withdraw money, balance lower than 1000
+[08:32:10.298] (16960) Balance after deposit: 530
+[08:32:10.298] (16960) Cannot withdraw money, balance lower than 1000
+[08:32:10.298] (16960) Balance after deposit: 760
+[08:32:10.299] (16960) Cannot withdraw money, balance lower than 1000
+[08:32:10.299] (16960) Balance after deposit: 990
+[08:32:10.300] (16960) Cannot withdraw money, balance lower than 1000
+[08:32:10.300] (16960) Balance after deposit: 1220
+[08:32:10.327] (16960) Balance after withdraw: 220
+[08:32:10.328] (16960) Balance after deposit: 450
+[08:32:10.329] (16960) Cannot withdraw money, balance lower than 1000
+[08:32:10.329] (16960) Balance after deposit: 680
+[08:32:10.329] (16960) Cannot withdraw money, balance lower than 1000
+[08:32:10.330] (16960) Balance after deposit: 910
+[08:32:10.331] (16960) Cannot withdraw money, balance lower than 1000
+[08:32:10.331] (16960) Balance after deposit: 1140
+[08:32:10.359] (16960) Balance after withdraw: 140
+[08:32:10.360] (16960) Balance after deposit: 370
+[08:32:10.360] (16960) Cannot withdraw money, balance lower than 1000
+[08:32:10.361] (16960) Balance after deposit: 600
+[08:32:10.361] (16960) Cannot withdraw money, balance lower than 1000
+[08:32:10.362] (16960) Balance after deposit: 830
+[08:32:10.362] (16960) Cannot withdraw money, balance lower than 1000
+[08:32:10.363] (16960) Balance after deposit: 1060
+[08:32:10.391] (16960) Balance after withdraw: 60
+[08:32:10.392] (16960) Balance after deposit: 290
+[08:32:10.393] (16960) Cannot withdraw money, balance lower than 1000
+[08:32:10.393] (16960) Balance after deposit: 520
+[08:32:10.394] (16960) Cannot withdraw money, balance lower than 1000
+[08:32:10.394] (16960) Balance after deposit: 750
+[08:32:10.394] (16960) Cannot withdraw money, balance lower than 1000
+[08:32:10.395] (16960) Final Balance: 750

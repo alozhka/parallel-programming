@@ -3,8 +3,10 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <format>
 #include <windows.h>
 
+constexpr LPCSTR MUTEX_NAME = R"(Lw5PPGlobalMutex)";
 HANDLE GlobalMutex = nullptr;
 // CRITICAL_SECTION GlobalCriticalSection;
 
@@ -30,6 +32,24 @@ void WriteToFile(int data)
 	myfile.close();
 }
 
+void PrintWithTime(int processId, const std::string& message, int balance = -1)
+{
+	SYSTEMTIME st;
+	GetLocalTime(&st);
+
+	std::cout << std::format("[{:02d}:{:02d}:{:02d}.{:03d}] ",
+		st.wHour, st.wMinute, st.wSecond, st.wMilliseconds);
+
+	if (balance != -1)
+	{
+		std::cout << std::format("({}) {}: {}\n", processId, message, balance);
+	}
+	else
+	{
+		std::cout << std::format("({}) {}\n", processId, message);
+	}
+}
+
 int GetBalance()
 {
 	int balance = ReadFromFile();
@@ -45,7 +65,7 @@ void Deposit(int money)
 	balance += money;
 
 	WriteToFile(balance);
-	printf("(%d) Balance after deposit: %d\n", GetCurrentProcessId(), balance);
+	PrintWithTime(GetCurrentProcessId(), "Balance after deposit", balance);
 
 	ReleaseMutex(GlobalMutex);
 	// LeaveCriticalSection(&GlobalCriticalSection);
@@ -58,7 +78,7 @@ void Withdraw(int money)
 
 	if (GetBalance() < money)
 	{
-		printf("(%d) Cannot withdraw money, balance lower than %d\n", GetCurrentProcessId(), money);
+		PrintWithTime(GetCurrentProcessId(), std::format("Cannot withdraw money, balance lower than {}", money));
 	}
 	else
 	{
@@ -66,7 +86,7 @@ void Withdraw(int money)
 		int balance = GetBalance();
 		balance -= money;
 		WriteToFile(balance);
-		printf("(%d) Balance after withdraw: %d\n", GetCurrentProcessId(), balance);
+		PrintWithTime(GetCurrentProcessId(), "Balance after withdraw", balance);
 	}
 
 	ReleaseMutex(GlobalMutex);
@@ -89,14 +109,15 @@ DWORD WINAPI DoWithdraw(CONST LPVOID lpParameter)
 
 int main()
 {
-	auto* handles = new HANDLE[49];
+	auto* handles = new HANDLE[50];
 
-	GlobalMutex = CreateMutex(nullptr, false, "Lw5PPGlobalMutex");
+	GlobalMutex = CreateMutex(nullptr, false, MUTEX_NAME);
 	// InitializeCriticalSection(&GlobalCriticalSection);
+	PrintWithTime(GetCurrentProcessId(), "Started");
 
 	WaitForSingleObject(GlobalMutex, INFINITE);
 	WriteToFile(0);
-	printf("(%d) Balance is set to 0\n", GetCurrentProcessId());
+	PrintWithTime(GetCurrentProcessId(), "Balance is set to 0");
 	ReleaseMutex(GlobalMutex);
 
 	SetProcessAffinityMask(GetCurrentProcess(), 1);
@@ -110,10 +131,11 @@ int main()
 
 	// ожидание окончания работы двух потоков
 	WaitForMultipleObjects(50, handles, true, INFINITE);
-	printf("(%d) Final Balance: %d\n", GetCurrentProcessId(), GetBalance());
+	PrintWithTime(GetCurrentProcessId(), "Final Balance", GetBalance());
 
 	CloseHandle(GlobalMutex);
 	// DeleteCriticalSection(&GlobalCriticalSection);
 
+	getchar();
 	return 0;
 }

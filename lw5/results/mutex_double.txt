@@ -1,0 +1,109 @@
+[08:57:47.731] (16688) Started
+[08:57:47.862] (16688) Balance is set to 0
+[08:57:47.866] (16688) Balance after deposit: 230
+[08:57:47.866] (16688) Cannot withdraw money, balance lower than 1000
+[08:57:47.867] (16688) Balance after deposit: 460
+[08:57:47.867] (16688) Cannot withdraw money, balance lower than 1000
+[08:57:47.868] (16688) Balance after deposit: 690
+[08:57:47.868] (16688) Cannot withdraw money, balance lower than 1000
+[08:57:47.868] (16688) Balance after deposit: 920
+[08:57:47.869] (16688) Cannot withdraw money, balance lower than 1000
+[08:57:47.870] (16688) Balance after deposit: 1150
+[08:57:47.902] (16688) Balance after withdraw: 150
+[08:57:47.904] (16688) Balance after deposit: 380
+[08:57:47.904] (16688) Cannot withdraw money, balance lower than 1000
+[08:57:47.905] (16688) Balance after deposit: 610
+[08:57:47.905] (16688) Cannot withdraw money, balance lower than 1000
+[08:57:47.905] (16688) Balance after deposit: 840
+[08:57:47.906] (16688) Cannot withdraw money, balance lower than 1000
+[08:57:47.907] (16688) Balance after deposit: 1070
+[08:57:47.934] (16688) Balance after withdraw: 70
+[08:57:47.935] (16688) Balance after deposit: 300
+[08:57:47.935] (16688) Cannot withdraw money, balance lower than 1000
+[08:57:47.936] (16688) Balance after deposit: 530
+[08:57:47.936] (16688) Cannot withdraw money, balance lower than 1000
+[08:57:47.937] (16688) Balance after deposit: 760
+[08:57:47.937] (16688) Cannot withdraw money, balance lower than 1000
+[08:57:47.938] (16688) Balance after deposit: 990
+[08:57:47.938] (16688) Cannot withdraw money, balance lower than 1000
+[08:57:47.939] (16688) Balance after deposit: 1220
+[08:57:47.966] (16688) Balance after withdraw: 220
+[08:57:47.967] (16688) Balance after deposit: 450
+[08:57:47.967] (16688) Cannot withdraw money, balance lower than 1000
+[08:57:47.968] (16688) Balance after deposit: 680
+[08:57:47.968] (16688) Cannot withdraw money, balance lower than 1000
+[08:57:47.968] (16688) Balance after deposit: 910
+[08:57:47.969] (16688) Cannot withdraw money, balance lower than 1000
+[08:57:47.969] (16688) Balance after deposit: 1140
+[08:57:47.997] (16688) Balance after withdraw: 140
+[08:57:47.998] (16688) Balance after deposit: 370
+[08:57:47.998] (16688) Cannot withdraw money, balance lower than 1000
+[08:57:47.999] (16688) Balance after deposit: 600
+[08:57:47.999] (16688) Cannot withdraw money, balance lower than 1000
+[08:57:48.000] (16688) Balance after deposit: 830
+[08:57:48.000] (16688) Cannot withdraw money, balance lower than 1000
+[08:57:48.001] (16688) Balance after deposit: 1060
+[08:57:48.029] (16688) Balance after withdraw: 60
+[08:57:48.030] (16688) Balance after deposit: 290
+[08:57:48.030] (16688) Cannot withdraw money, balance lower than 1000
+[08:57:48.031] (16688) Balance after deposit: 520
+[08:57:48.031] (16688) Cannot withdraw money, balance lower than 1000
+[08:57:48.032] (16688) Balance after deposit: 750
+[08:57:48.032] (16688) Cannot withdraw money, balance lower than 1000
+[08:57:48.032] (16688) Final Balance: 750
+
+# Другая консоль
+[08:57:47.688] (15832) Started
+[08:57:47.689] (15832) Balance is set to 0
+[08:57:47.692] (15832) Balance after deposit: 230
+[08:57:47.693] (15832) Cannot withdraw money, balance lower than 1000
+[08:57:47.694] (15832) Balance after deposit: 460
+[08:57:47.694] (15832) Cannot withdraw money, balance lower than 1000
+[08:57:47.694] (15832) Balance after deposit: 690
+[08:57:47.695] (15832) Cannot withdraw money, balance lower than 1000
+[08:57:47.695] (15832) Balance after deposit: 920
+[08:57:47.696] (15832) Cannot withdraw money, balance lower than 1000
+[08:57:47.696] (15832) Balance after deposit: 1150
+[08:57:47.727] (15832) Balance after withdraw: 150
+[08:57:47.728] (15832) Balance after deposit: 380
+[08:57:47.729] (15832) Cannot withdraw money, balance lower than 1000
+[08:57:47.730] (15832) Balance after deposit: 610
+[08:57:47.730] (15832) Cannot withdraw money, balance lower than 1000
+[08:57:47.731] (15832) Balance after deposit: 840
+[08:57:47.732] (15832) Cannot withdraw money, balance lower than 1000
+[08:57:47.732] (15832) Balance after deposit: 1070
+[08:57:47.758] (15832) Balance after withdraw: 70
+[08:57:47.759] (15832) Balance after deposit: 300
+[08:57:47.760] (15832) Cannot withdraw money, balance lower than 1000
+[08:57:47.760] (15832) Balance after deposit: 530
+[08:57:47.761] (15832) Cannot withdraw money, balance lower than 1000
+[08:57:47.761] (15832) Balance after deposit: 760
+[08:57:47.761] (15832) Cannot withdraw money, balance lower than 1000
+[08:57:47.762] (15832) Balance after deposit: 990
+[08:57:47.762] (15832) Cannot withdraw money, balance lower than 1000
+[08:57:47.763] (15832) Balance after deposit: 1220
+[08:57:47.790] (15832) Balance after withdraw: 220
+[08:57:47.791] (15832) Balance after deposit: 450
+[08:57:47.792] (15832) Cannot withdraw money, balance lower than 1000
+[08:57:47.792] (15832) Balance after deposit: 680
+[08:57:47.792] (15832) Cannot withdraw money, balance lower than 1000
+[08:57:47.793] (15832) Balance after deposit: 910
+[08:57:47.793] (15832) Cannot withdraw money, balance lower than 1000
+[08:57:47.794] (15832) Balance after deposit: 1140
+[08:57:47.823] (15832) Balance after withdraw: 140
+[08:57:47.824] (15832) Balance after deposit: 370
+[08:57:47.824] (15832) Cannot withdraw money, balance lower than 1000
+[08:57:47.825] (15832) Balance after deposit: 600
+[08:57:47.825] (15832) Cannot withdraw money, balance lower than 1000
+[08:57:47.826] (15832) Balance after deposit: 830
+[08:57:47.826] (15832) Cannot withdraw money, balance lower than 1000
+[08:57:47.827] (15832) Balance after deposit: 1060
+[08:57:47.858] (15832) Balance after withdraw: 60
+[08:57:47.859] (15832) Balance after deposit: 290
+[08:57:47.859] (15832) Cannot withdraw money, balance lower than 1000
+[08:57:47.860] (15832) Balance after deposit: 520
+[08:57:47.860] (15832) Cannot withdraw money, balance lower than 1000
+[08:57:47.861] (15832) Balance after deposit: 750
+[08:57:47.862] (15832) Cannot withdraw money, balance lower than 1000
+[08:57:47.862] (15832) Final Balance: 750
+
