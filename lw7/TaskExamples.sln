@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncWriter", "AsyncWriter\AsyncWriter.csproj", "{5EA62CFB-133C-48BB-8299-9716BB691398}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageLoader", "ImageLoader\ImageLoader.csproj", "{471D0C49-1032-4D29-8D8A-381CF4DB9FE7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{5EA62CFB-133C-48BB-8299-9716BB691398}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EA62CFB-133C-48BB-8299-9716BB691398}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EA62CFB-133C-48BB-8299-9716BB691398}.Release|Any CPU.Build.0 = Release|Any CPU
+		{471D0C49-1032-4D29-8D8A-381CF4DB9FE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{471D0C49-1032-4D29-8D8A-381CF4DB9FE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{471D0C49-1032-4D29-8D8A-381CF4DB9FE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{471D0C49-1032-4D29-8D8A-381CF4DB9FE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
