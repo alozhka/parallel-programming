@@ -47,14 +47,6 @@ class Program
         await Task.WhenAll(tasks);
     }
 
-    private static async Task<string> GetImageUrl()
-    {
-        string message = await Client.GetStringAsync("https://dog.ceo/api/breeds/image/random");
-        GetDogUrlResponse dogUrl = JsonSerializer.Deserialize<GetDogUrlResponse>(message) ??
-                                   throw new InvalidOperationException("No images found");
-        return dogUrl.Message;
-    }
-
     private static async Task LoadImagesSequentially(uint amount)
     {
         for (int i = 0; i < amount; i++)
@@ -62,6 +54,14 @@ class Program
             string filePath = Path.Combine("images_sequentially", $"dog{i + 1}.jpg");
             await LoadImage(filePath);
         }
+    }
+
+    private static async Task<string> GetImageUrl()
+    {
+        string message = await Client.GetStringAsync("https://dog.ceo/api/breeds/image/random");
+        GetDogUrlResponse dogUrl = JsonSerializer.Deserialize<GetDogUrlResponse>(message) ??
+                                   throw new InvalidOperationException("No images found");
+        return dogUrl.Message;
     }
 
     private static async Task LoadImage(string filePath)
